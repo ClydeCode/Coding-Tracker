@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Coding-Tracker": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\Clyde\\source\\repos\\Coding-Tracker\\Coding-Tracker"
+    }
+  }
+}
