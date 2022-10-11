@@ -1,6 +1,4 @@
-﻿using System;
-using System.Configuration;
-using System.Collections.Specialized;
+﻿using System.Configuration;
 using Microsoft.Data.Sqlite;
 internal class Database
 {
