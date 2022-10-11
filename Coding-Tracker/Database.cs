@@ -3,6 +3,11 @@ using Microsoft.Data.Sqlite;
 internal class Database
 {
     private readonly string? ConnectionString = ConfigurationManager.AppSettings.Get("connectionString");
+
+    internal Database()
+    {
+        CreateDatabase();
+    }
     internal void CreateDatabase()
     {
         using (var connection = new SqliteConnection(ConnectionString))
@@ -13,7 +18,7 @@ internal class Database
 
                 command.CommandText =
                     @"CREATE TABLE IF NOT EXISTS CodingTracker
-                        (Id int AUTO INCREMENT, StartTime string, EndTime string, Duration int);";
+                        (Id INTEGER PRIMARY KEY AUTOINCREMENT, StartTime STRING, EndTime STRING, Duration INTEGER);";
 
                 command.ExecuteNonQuery();
             }
