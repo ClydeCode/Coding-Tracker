@@ -70,7 +70,7 @@ internal class Database
         }
     }
 
-    internal void Update(int Id, DateTime StartTime, DateTime EndTime, int Duration)
+    internal void Update(int Id, string StartTime, string EndTime, int Duration)
     {
         using (var connection = new SqliteConnection(ConnectionString))
         {
