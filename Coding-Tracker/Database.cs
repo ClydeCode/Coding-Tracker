@@ -53,7 +53,7 @@ internal class Database
         return list;
     }
 
-    internal void Insert(DateTime StartTime, DateTime EndTime, int Duration)
+    internal void Insert(string StartTime, string EndTime, int Duration)
     {
         using (var connection = new SqliteConnection(ConnectionString))
         {
