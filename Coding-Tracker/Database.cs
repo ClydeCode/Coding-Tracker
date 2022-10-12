@@ -117,8 +117,8 @@ internal class Database
 
                 command.CommandText =
                     $@"UPDATE CodingTracker SET 
-                        StartTime={StartTime},
-                        EndTime={EndTime},
+                        StartTime='{StartTime}',
+                        EndTime='{EndTime}',
                         Duration={Duration}
                     WHERE Id={Id}";
 
