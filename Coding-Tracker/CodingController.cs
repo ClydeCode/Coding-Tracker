@@ -32,6 +32,10 @@ internal class CodingController
                 Console.Clear();
                 Insert();
                 break;
+            case 3:
+                Console.Clear();
+                Delete();
+                break;
             default:
                 Console.WriteLine("Wrong Input!");
                 break;
@@ -59,6 +63,13 @@ internal class CodingController
             StartTime.ToString("yyyy-MM-dd HH:mm:ss"), 
             EndTime.ToString("yyyy-MM-dd HH:mm:ss"), 
             CalculateDuration(StartTime, EndTime));
+    }
+
+    internal void Delete()
+    {
+        int Id = UserInput.GetInt();
+
+        if (Database.ReadById(Id).Id != null) Database.Delete(Id);
     }
 
     internal int CalculateDuration(DateTime DT1, DateTime DT2)
