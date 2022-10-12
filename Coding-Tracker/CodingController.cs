@@ -3,6 +3,7 @@ internal class CodingController
 {
     private readonly Database Database = new();
     private readonly TableVisualisationEngine VisualisationEngine = new();
+    private readonly UserInput UserInput = new();
 
     internal void ShowMenu()
     {
@@ -29,6 +30,7 @@ internal class CodingController
                 break;
             case 2:
                 Console.Clear();
+                Insert();
                 break;
             default:
                 Console.WriteLine("Wrong Input!");
@@ -38,9 +40,30 @@ internal class CodingController
 
     internal void View()
     {
-        VisualisationEngine.Insert(Database.Read());
+        VisualisationEngine.Clear();
+
+        VisualisationEngine.Add(Database.Read());
 
         VisualisationEngine.Print();
+    }
+
+    internal void Insert()
+    {
+        Console.WriteLine("[StartTime]");
+        DateTime StartTime = UserInput.GetDate();
+
+        Console.WriteLine("\n[EndTime]");
+        DateTime EndTime = UserInput.GetDate();
+
+        Database.Insert(
+            StartTime.ToString("yyyy-MM-dd HH:mm:ss"), 
+            EndTime.ToString("yyyy-MM-dd HH:mm:ss"), 
+            CalculateDuration(StartTime, EndTime));
+    }
+
+    internal int CalculateDuration(DateTime DT1, DateTime DT2)
+    {
+        return Convert.ToInt32((DT1 - DT2).TotalDays);
     }
 }
 
