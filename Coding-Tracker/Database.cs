@@ -25,6 +25,40 @@ internal class Database
         }
     }
 
+    internal CodingTrackerModel ReadById(int Id)
+    {
+        CodingTrackerModel Model = new();
+
+        using (var connection = new SqliteConnection(ConnectionString))
+        {
+            using (var command = connection.CreateCommand())
+            {
+                connection.Open();
+
+                command.CommandText = $"SELECT * FROM CodingTracker WHERE Id={Id}";
+
+                var reader = command.ExecuteReader();
+
+                try
+                {
+                    reader.Read();
+
+                    Model = new()
+                    {
+                        Id = reader.GetString(0),
+                        StartTime = reader.GetString(1),
+                        EndTime = reader.GetString(2),
+                        Duration = reader.GetString(3)
+                    };
+                } catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+        }
+        return Model;
+    }
+
     internal List<CodingTrackerModel> Read()
     {
         List<CodingTrackerModel> list = new();
