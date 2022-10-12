@@ -19,7 +19,7 @@ internal class UserInput
 
     internal int GetInt()
     {
-        Console.WriteLine("Type Number:");
+        Console.WriteLine("\nType Number:");
 
         string? Number = Console.ReadLine();
 
