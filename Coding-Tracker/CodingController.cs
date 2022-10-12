@@ -19,21 +19,20 @@ internal class CodingController
 
     internal void Navigate(int Number)
     {
+        Console.Clear();
+
         switch (Number)
         {
             case 0:
                 Environment.Exit(0);
                 break;
             case 1:
-                Console.Clear();
                 View();
                 break;
             case 2:
-                Console.Clear();
                 Insert();
                 break;
             case 3:
-                Console.Clear();
                 Delete();
                 break;
             default:
