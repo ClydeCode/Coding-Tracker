@@ -66,7 +66,7 @@ internal class Database
 
                 command.CommandText =
                     $@"INSERT INTO CodingTracker (StartTime, EndTime, Duration)
-                        VALUES ({StartTime}, {EndTime}, {Duration})";
+                        VALUES ('{StartTime}', '{EndTime}', {Duration})";
 
                 command.ExecuteNonQuery();
             }
