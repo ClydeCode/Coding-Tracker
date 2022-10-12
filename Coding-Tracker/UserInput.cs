@@ -10,10 +10,25 @@ internal class UserInput
 
         while (!Validation.CheckDate(Date))
         {
-            Console.WriteLine("Wrong Date format!");
+            Console.WriteLine("Wrong Date Format!");
             Date = Console.ReadLine();
         }
 
         return DateTime.Parse(Date);
+    }
+
+    internal int GetInt()
+    {
+        Console.WriteLine("Type Number:");
+
+        string? Number = Console.ReadLine();
+
+        while (!Validation.CheckInt(Number))
+        {
+            Console.WriteLine("Wrong Number Format!");
+            Number = Console.ReadLine();
+        }
+
+        return int.Parse(Number);
     }
 }
