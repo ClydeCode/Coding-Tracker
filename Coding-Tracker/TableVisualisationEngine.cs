@@ -13,7 +13,7 @@ internal class TableVisualisationEngine
             .ExportAndWriteLine();
     }
 
-    internal void Insert(List<CodingTrackerModel> list)
+    internal void Add(List<CodingTrackerModel> list)
     {
         foreach (CodingTrackerModel model in list)
         {
@@ -27,5 +27,10 @@ internal class TableVisualisationEngine
                 }
                 );
         }
+    }
+
+    internal void Clear()
+    {
+        TableData.Clear();
     }
 }

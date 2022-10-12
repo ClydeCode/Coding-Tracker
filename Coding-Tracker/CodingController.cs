@@ -27,6 +27,9 @@ internal class CodingController
                 Console.Clear();
                 View();
                 break;
+            case 2:
+                Console.Clear();
+                break;
             default:
                 Console.WriteLine("Wrong Input!");
                 break;
