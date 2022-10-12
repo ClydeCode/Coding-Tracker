@@ -2,6 +2,7 @@
 internal class CodingController
 {
     private readonly Database Database = new();
+    private readonly TableVisualisationEngine VisualisationEngine = new();
 
     internal void ShowMenu()
     {
@@ -24,11 +25,19 @@ internal class CodingController
                 break;
             case 1:
                 Console.Clear();
+                View();
                 break;
             default:
                 Console.WriteLine("Wrong Input!");
                 break;
         }
+    }
+
+    internal void View()
+    {
+        VisualisationEngine.Insert(Database.Read());
+
+        VisualisationEngine.Print();
     }
 }
 
