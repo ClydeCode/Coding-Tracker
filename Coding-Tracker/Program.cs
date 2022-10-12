@@ -6,6 +6,6 @@ while (true)
 
     Program.Navigate(Convert.ToInt32(Console.ReadLine()));
 
-    Console.WriteLine("Press ENTER to Continue...");
+    Console.WriteLine("\nPress ENTER to Continue...");
     Console.ReadLine();
 }
