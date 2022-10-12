@@ -74,7 +74,7 @@ internal class CodingController
 
     internal int CalculateDuration(DateTime DT1, DateTime DT2)
     {
-        return Convert.ToInt32((DT1 - DT2).TotalDays);
+        return Convert.ToInt32((DT2 - DT1).TotalDays);
     }
 }
 
