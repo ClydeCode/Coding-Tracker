@@ -5,4 +5,9 @@ internal class Validation
     {
         return (DateTime.TryParse(Date, out _));
     }
+
+    internal bool CheckInt(string? Number)
+    {
+        return (int.TryParse(Number, out _));
+    }
 }
