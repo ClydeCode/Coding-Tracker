@@ -13,17 +13,17 @@ internal class TableVisualisationEngine
             .ExportAndWriteLine();
     }
 
-    internal void Add(List<CodingTrackerModel> list)
+    internal void Add(List<CodingTrackerModel> List)
     {
-        foreach (CodingTrackerModel model in list)
+        foreach (CodingTrackerModel Model in List)
         {
             TableData.Add(
                 new List<object>
                 {
-                    model.Id,
-                    model.StartTime,
-                    model.EndTime,
-                    model.Duration
+                    Model.Id,
+                    Model.StartTime,
+                    Model.EndTime,
+                    Model.Duration
                 }
                 );
         }
