@@ -8,7 +8,7 @@ internal class UserInput
 
         while (true)
         {
-            Console.WriteLine("Type Date <YYYY-MM-DD>:");
+            Console.WriteLine("Type Date <yyyy-MM-dd HH:mm:ss>:");
             Date = Console.ReadLine();
 
             if (!Validation.CheckDate(Date))
