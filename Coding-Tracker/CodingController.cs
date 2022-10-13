@@ -59,7 +59,7 @@ internal class CodingController
         DateTime StartTime = UserInput.GetDate();
 
         Console.WriteLine("\n[EndTime]");
-        DateTime EndTime = UserInput.GetDate();
+        DateTime EndTime = UserInput.GetDate(StartTime);
 
         Database.Insert(
             StartTime.ToString("yyyy-MM-dd HH:mm:ss"), 
