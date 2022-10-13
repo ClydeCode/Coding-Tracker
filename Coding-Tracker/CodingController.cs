@@ -91,7 +91,8 @@ internal class CodingController
                 Id, 
                 StartTime.ToString("yyyy-MM-dd HH:mm:ss"), 
                 EndTime.ToString("yyyy-MM-dd HH:mm:ss"), 
-                CalculateDuration(StartTime, EndTime));
+                CalculateDuration(StartTime, EndTime)
+            );
         }
     }
 
