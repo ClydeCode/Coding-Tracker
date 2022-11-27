@@ -17,11 +17,11 @@ internal class CodingController
         Console.WriteLine("Type 4 To Update Record");
     }
 
-    internal void Navigate(int Number)
+    internal void Navigate(int number)
     {
         Console.Clear();
 
-        switch (Number)
+        switch (number)
         {
             case 0:
                 Environment.Exit(0);
@@ -56,42 +56,42 @@ internal class CodingController
     internal void Insert()
     {
         Console.WriteLine("[StartTime]");
-        DateTime StartTime = UserInput.GetDate();
+        DateTime startTime = UserInput.GetDate();
 
         Console.WriteLine("\n[EndTime]");
-        DateTime EndTime = UserInput.GetDate(StartTime);
+        DateTime endTime = UserInput.GetDate(startTime);
 
         Database.Insert(
-            StartTime.ToString("yyyy-MM-dd HH:mm:ss"), 
-            EndTime.ToString("yyyy-MM-dd HH:mm:ss"), 
-            CalculateDuration(StartTime, EndTime)
+            startTime.ToString("yyyy-MM-dd HH:mm:ss"), 
+            endTime.ToString("yyyy-MM-dd HH:mm:ss"), 
+            CalculateDuration(startTime, endTime)
         );
     }
 
     internal void Delete()
     {
-        int Id = UserInput.GetInt();
+        int id = UserInput.GetInt();
 
-        if (Database.ReadById(Id).Id != null) Database.Delete(Id);
+        if (Database.ReadById(id).Id != null) Database.Delete(id);
     }
 
     internal void Update()
     {
-        int Id = UserInput.GetInt();
+        int id = UserInput.GetInt();
 
-        if (Database.ReadById(Id).Id != null)
+        if (Database.ReadById(id).Id != null)
         {
             Console.WriteLine("[StartTime]");
-            DateTime StartTime = UserInput.GetDate();
+            DateTime startTime = UserInput.GetDate();
 
             Console.WriteLine("\n[EndTime]");
-            DateTime EndTime = UserInput.GetDate();
+            DateTime endTime = UserInput.GetDate();
 
             Database.Update(
-                Id, 
-                StartTime.ToString("yyyy-MM-dd HH:mm:ss"), 
-                EndTime.ToString("yyyy-MM-dd HH:mm:ss"), 
-                CalculateDuration(StartTime, EndTime)
+                id, 
+                startTime.ToString("yyyy-MM-dd HH:mm:ss"), 
+                endTime.ToString("yyyy-MM-dd HH:mm:ss"), 
+                CalculateDuration(startTime, endTime)
             );
         }
     }

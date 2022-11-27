@@ -27,7 +27,7 @@ internal class Database
 
     internal CodingTrackerModel ReadById(int Id)
     {
-        CodingTrackerModel Model = new();
+        CodingTrackerModel model = new();
 
         using (var connection = new SqliteConnection(ConnectionString))
         {
@@ -43,7 +43,7 @@ internal class Database
                 {
                     reader.Read();
 
-                    Model = new()
+                    model = new()
                     {
                         Id = reader.GetString(0),
                         StartTime = reader.GetString(1),
@@ -56,7 +56,7 @@ internal class Database
                 }
             }
         }
-        return Model;
+        return model;
     }
 
     internal List<CodingTrackerModel> Read()
@@ -76,21 +76,21 @@ internal class Database
 
                 while (reader.Read())
                 {
-                    CodingTrackerModel Model = new()
+                    CodingTrackerModel model = new()
                     {
                         Id = reader.GetString(0),
                         StartTime = reader.GetString(1),
                         EndTime = reader.GetString(2),
                         Duration = reader.GetString(3)
                     };
-                    list.Add(Model);
+                    list.Add(model);
                 }
             }
         }
         return list;
     }
 
-    internal void Insert(string StartTime, string EndTime, int Duration)
+    internal void Insert(string startTime, string endTime, int duration)
     {
         using (var connection = new SqliteConnection(ConnectionString))
         {
@@ -100,14 +100,14 @@ internal class Database
 
                 command.CommandText =
                     $@"INSERT INTO CodingTracker (StartTime, EndTime, Duration)
-                        VALUES ('{StartTime}', '{EndTime}', {Duration})";
+                        VALUES ('{startTime}', '{endTime}', {duration})";
 
                 command.ExecuteNonQuery();
             }
         }
     }
 
-    internal void Update(int Id, string StartTime, string EndTime, int Duration)
+    internal void Update(int id, string startTime, string endTime, int duration)
     {
         using (var connection = new SqliteConnection(ConnectionString))
         {
@@ -117,17 +117,17 @@ internal class Database
 
                 command.CommandText =
                     $@"UPDATE CodingTracker SET 
-                        StartTime='{StartTime}',
-                        EndTime='{EndTime}',
-                        Duration={Duration}
-                    WHERE Id={Id}";
+                        StartTime='{startTime}',
+                        EndTime='{endTime}',
+                        Duration={duration}
+                    WHERE Id={id}";
 
                 command.ExecuteNonQuery();
             }
         }
     }
 
-    internal void Delete(int Id)
+    internal void Delete(int id)
     {
         using (var connection = new SqliteConnection(ConnectionString))
         {
@@ -136,7 +136,7 @@ internal class Database
                 connection.Open();
 
                 command.CommandText =
-                    $@"DELETE FROM CodingTracker WHERE Id={Id}";
+                    $@"DELETE FROM CodingTracker WHERE Id={id}";
 
                 command.ExecuteNonQuery();
             }

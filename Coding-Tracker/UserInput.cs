@@ -2,42 +2,42 @@
 internal class UserInput
 {
     Validation Validation = new();
-    internal DateTime GetDate(DateTime DTSecond = new())
+    internal DateTime GetDate(DateTime dtSecond = new())
     {
-        string? Date;
+        string? date;
 
         while (true)
         {
             Console.WriteLine("Type Date <yyyy-MM-dd HH:mm:ss>:");
-            Date = Console.ReadLine();
+            date = Console.ReadLine();
 
-            if (!Validation.CheckDate(Date))
+            if (!Validation.CheckDate(date))
             {
                 Console.WriteLine("Wrong Date Format!");
                 continue;
             }
 
-            if (!(DateTime.Parse(Date).CompareTo(DTSecond) > 0)) Console.WriteLine("EndTime can't be earlier than StartTime!");
+            if (!(DateTime.Parse(date).CompareTo(dtSecond) > 0)) Console.WriteLine("EndTime can't be earlier than StartTime!");
 
             else break;
 
         }
 
-        return DateTime.Parse(Date);
+        return DateTime.Parse(date);
     }
 
     internal int GetInt()
     {
         Console.WriteLine("\nType Number:");
 
-        string? Number = Console.ReadLine();
+        string? number = Console.ReadLine();
 
-        while (!Validation.CheckInt(Number))
+        while (!Validation.CheckInt(number))
         {
             Console.WriteLine("Wrong Number Format!");
-            Number = Console.ReadLine();
+            number = Console.ReadLine();
         }
 
-        return int.Parse(Number);
+        return int.Parse(number);
     }
 }
